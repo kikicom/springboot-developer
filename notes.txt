@@ -1,0 +1,36 @@
+저장소 위치 : https://github.com/shinsunyoung/springboot-developer
+
+
+- @RestController   라우터 역할을 하는 애너테이션 
+컨트롤러->서비스->리포지토리->데이터베이스
+
+- build.grade 빌드 설정하는 파일 의존성이나 플러그인 설정 등과 같이 빌드에 필요한 설정을 할때 사용
+- settings.grade 빌드할 프로젝트의 정보를 설정하는 파일
+
+- application.yml   - 스프링이 시작될때 자동으로 로딩되는 파일
+
+-H2 데이터베이스 콘솔 사용하기 (application)
+  # H2 Setting Info (H2 Console에 접속하기 위한 설정정보 입력)
+  h2:
+    console:
+      enabled: true  # H2 Console을 사용할지 여부 (H2 Console은 H2 Database를 UI로 제공해주는 기능)
+      path: /h2-console  # H2 Console의 Path
+  datasource:
+    driver-class-name: org.h2.Driver  # Database를 H2로 사용하겠다.
+    url: jdbc:h2:mem:testdb  # H2 접속 정보
+    username: sa  # H2 접속 시 입력할 username 정보 (원하는 것으로 입력)
+    password:     # H2 접속 시 입력할 password 정보 (원하는 것으로 입력)
+ 
+
+- Repository 메서드 정리
+   long count()										엔티티의 수를 반환
+   Iterable<T> findAll()							지정한 형식의 모든 항목을 반환
+   Optional<T> findById(ID id)						지정한 ID의 한 항목을 반환
+   void delete(T entity)							엔티티 삭제
+   void deleteAll()									리포지터리의 모든 엔티티를 삭제
+   <S extends T> save(S entity)						엔티티를 저장소		
+   List<S> saveAll(Iterable<S> entities)			여러 엔티티를 저장
+   
+   
+-- text assertThat 메서드 이름
+isEqualTo(A)    
